@@ -8,7 +8,7 @@ import java.util.Objects;
 @Embeddable
 public class Endereco implements Serializable {
 
-  @Column(name = "end_cep")
+  @Column(name = "end_cep", columnDefinition = "CHAR(8)")
   private String cep;
 
   @Column(name = "end_rua")
