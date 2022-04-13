@@ -3,6 +3,7 @@ package model.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Fornecedor implements Serializable {
@@ -14,6 +15,14 @@ public class Fornecedor implements Serializable {
 
   @Column(nullable = false)
   private String nome;
+
+  @ManyToMany
+  @JoinTable(
+      name = "produto_fornecedor",
+      joinColumns = @JoinColumn(name = "id_fornecedor"),
+      inverseJoinColumns = @JoinColumn(name = "id_produto")
+  )
+  private Set<Produto> produtos;
 
   public Fornecedor() {}
 
