@@ -10,7 +10,7 @@ public class Produto implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_produto")
-  private int id;
+  private Long id;
 
   @Column
   private String nome;
@@ -23,18 +23,18 @@ public class Produto implements Serializable {
 
   public Produto() {}
 
-  public Produto(int id, String nome, String descricao, double valor) {
+  public Produto(Long id, String nome, String descricao, double valor) {
     this.id = id;
     this.nome = nome;
     this.descricao = descricao;
     this.valor = valor;
   }
 
-  public int getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

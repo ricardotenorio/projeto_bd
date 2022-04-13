@@ -10,23 +10,23 @@ public class Fornecedor implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_fornecedor")
-  private int id;
+  private Long id;
 
   @Column(nullable = false)
   private String nome;
 
   public Fornecedor() {}
 
-  public Fornecedor(int id, String nome) {
+  public Fornecedor(Long id, String nome) {
     this.id = id;
     this.nome = nome;
   }
 
-  public int getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

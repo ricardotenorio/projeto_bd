@@ -8,23 +8,23 @@ import java.util.Objects;
 public class DependentePK {
 
   @Column(name = "id_cliente", nullable = false)
-  private int idCliente;
+  private Long idCliente;
 
   @Column(name = "rg", nullable = false, columnDefinition = "VARCHAR(50)")
   private String rg;
 
   public DependentePK() {}
 
-  public DependentePK(int idCliente, String rg) {
+  public DependentePK(Long idCliente, String rg) {
     this.idCliente = idCliente;
     this.rg = rg;
   }
 
-  public int getIdCliente() {
+  public Long getIdCliente() {
     return idCliente;
   }
 
-  public void setIdCliente(int idCliente) {
+  public void setIdCliente(Long idCliente) {
     this.idCliente = idCliente;
   }
 

@@ -11,7 +11,7 @@ public class Pedido implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_pedido")
-  private int id;
+  private Long id;
 
   @Column(name = "valor_total")
   private double valorTotal;
@@ -48,7 +48,7 @@ public class Pedido implements Serializable {
 
   public Pedido() {}
 
-  public Pedido(int id, double valorTotal, LocalDate data, Endereco endereco, Cliente cliente) {
+  public Pedido(Long id, double valorTotal, LocalDate data, Endereco endereco, Cliente cliente) {
     this.id = id;
     this.valorTotal = valorTotal;
     this.data = data;
@@ -56,11 +56,11 @@ public class Pedido implements Serializable {
     this.cliente = cliente;
   }
 
-  public int getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
