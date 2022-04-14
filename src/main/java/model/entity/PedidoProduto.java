@@ -16,12 +16,12 @@ public class PedidoProduto {
   @Column(name = "qtd", columnDefinition = "INTEGER NOT NULL DEFAULT 1")
   private Integer quantidade;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @MapsId("idPedido")
   @JoinColumn(name = "id_pedido")
   private Pedido pedido;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @MapsId("idProduto")
   @JoinColumn(name = "id_produto")
   private Produto produto;

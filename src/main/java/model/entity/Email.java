@@ -12,7 +12,7 @@ public class Email implements Serializable {
 
     @MapsId("idCliente")
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Cliente cliente;
 
     public Email(EmailPK id, Cliente cliente) {

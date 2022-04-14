@@ -44,7 +44,7 @@ public class Pedido implements Serializable {
   private Endereco endereco;
 
   @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-  @ManyToOne(optional = false)
+  @ManyToOne(optional = false, cascade = CascadeType.ALL)
   private Cliente cliente;
 
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")
