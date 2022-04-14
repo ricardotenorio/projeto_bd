@@ -31,6 +31,10 @@ public abstract class Cliente implements Serializable {
 		this.carteira = carteira;
 	}
 
+	public double verificarSaldoCarteira() {
+		return this.carteira.getSaldo();
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -28,9 +28,9 @@ public class PedidoProduto {
 
   public PedidoProduto() {}
 
-  public PedidoProduto(PedidoProdutoPK id, Double valorUnitario, Integer quantidade, Pedido pedido, Produto produto) {
+  public PedidoProduto(PedidoProdutoPK id, Integer quantidade, Pedido pedido, Produto produto) {
     this.id = id;
-    this.valorUnitario = valorUnitario;
+    this.valorUnitario = produto.getValor();
     this.quantidade = quantidade;
     this.pedido = pedido;
     this.produto = produto;
@@ -45,6 +45,9 @@ public class PedidoProduto {
   }
 
   public Double getValorUnitario() {
+    if (this.valorUnitario == 0)
+      setValorUnitario(produto.getValor());
+
     return valorUnitario;
   }
 
