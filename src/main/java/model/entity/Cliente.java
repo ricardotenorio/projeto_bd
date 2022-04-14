@@ -19,8 +19,17 @@ public abstract class Cliente implements Serializable {
 	
 	@Column(name = "NOME", nullable = false)
 	private String nome;
-	
+
+	@OneToOne(mappedBy = "cliente")
+	private Carteira carteira;
+
 	public Cliente() {}
+
+	public Cliente(Long id, String nome, Carteira carteira) {
+		this.id = id;
+		this.nome = nome;
+		this.carteira = carteira;
+	}
 
 	public Long getId() {
 		return id;
@@ -36,6 +45,14 @@ public abstract class Cliente implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Carteira getCarteira() {
+		return carteira;
+	}
+
+	public void setCarteira(Carteira carteira) {
+		this.carteira = carteira;
 	}
 
 	@Override

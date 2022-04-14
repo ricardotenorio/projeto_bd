@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Pedido implements Serializable {
@@ -46,14 +47,18 @@ public class Pedido implements Serializable {
   @ManyToOne(optional = false)
   private Cliente cliente;
 
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")
+  private Set<PedidoProduto> itens;
+
   public Pedido() {}
 
-  public Pedido(Long id, double valorTotal, LocalDate data, Endereco endereco, Cliente cliente) {
+  public Pedido(Long id, double valorTotal, LocalDate data, Endereco endereco, Cliente cliente, Set<PedidoProduto> itens) {
     this.id = id;
     this.valorTotal = valorTotal;
     this.data = data;
     this.endereco = endereco;
     this.cliente = cliente;
+    this.itens = itens;
   }
 
   public Long getId() {
@@ -94,6 +99,14 @@ public class Pedido implements Serializable {
 
   public void setCliente(Cliente cliente) {
     this.cliente = cliente;
+  }
+
+  public Set<PedidoProduto> getItens() {
+    return itens;
+  }
+
+  public void setItens(Set<PedidoProduto> itens) {
+    this.itens = itens;
   }
 
   @Override
