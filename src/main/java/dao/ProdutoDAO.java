@@ -16,8 +16,9 @@ public class ProdutoDAO {
     return dao.adiciona(t);
   }
 
-  public void remove(Produto t) {
+  public Produto remove(Produto t) {
     dao.remove(t);
+    return t;
   }
 
   public Produto atualiza(Produto t) {

@@ -16,8 +16,9 @@ public class DependenteDAO {private GenericDAO<Dependente> dao;
     return dao.adiciona(t);
   }
 
-  public void remove(Dependente t) {
+  public Cliente remove(Dependente t) {
     dao.remove(t);
+      return null;
   }
 
   public Dependente atualiza(Dependente t) {

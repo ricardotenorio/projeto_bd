@@ -1,6 +1,5 @@
 package dao;
 
-import model.entity.Carteira;
 import model.entity.Pedido;
 
 import javax.persistence.EntityManager;
@@ -28,8 +27,9 @@ public class PedidoDAO {
   }
 
 
-  public void remove(Pedido t) {
+  public Pedido remove(Pedido t) {
     dao.remove(t);
+    return t;
   }
 
   public Pedido atualiza(Pedido t) {
