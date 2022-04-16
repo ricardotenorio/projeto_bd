@@ -15,8 +15,8 @@ public class PedidoService {
     return dao.atualiza(pedido);
   }
 
-  public Pedido removePedido(Pedido pedido){
-    return dao.remove(pedido);
+  public void removePedido(Pedido pedido){
+    dao.remove(pedido);
   }
 
   public List<Pedido> listaPedido(Pedido pedido){

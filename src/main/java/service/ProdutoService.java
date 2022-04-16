@@ -19,8 +19,8 @@ public class ProdutoService {
         return dao.atualiza(produto);
     }
 
-    public Produto removeProduto(Produto produto){
-        return dao.remove(produto);
+    public void removeProduto(Produto produto){
+        dao.remove(produto);
     }
 
     public Produto buscaID(long produtoID){

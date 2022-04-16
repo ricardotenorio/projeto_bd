@@ -18,9 +18,13 @@ public class DependenteService {
         return dao.atualiza(dependente);
     }
 
-    //todo remove por rg
+    public void removeDependente(Dependente dependente) {
+        dao.remove(dependente);
+    }
 
-    //todo buscaRG
+    public Dependente buscarPorRg(String rg) {
+        return dao.buscaPorRg(rg);
+    }
 
     public List<Dependente> listaDependente(Dependente dependente){
         return dao.listaTodos();

@@ -18,8 +18,8 @@ public class ClienteService {
         return dao.atualiza(cliente);
     }
 
-    public Cliente removeCliente(Cliente cliente){
-        return dao.remove(cliente);
+    public void removeCliente(Cliente cliente){
+        dao.remove(cliente);
     }
 
     public Cliente buscaID(long clienteID){

@@ -27,9 +27,8 @@ public class PedidoDAO {
   }
 
 
-  public Pedido remove(Pedido t) {
+  public void remove(Pedido t) {
     dao.remove(t);
-    return t;
   }
 
   public Pedido atualiza(Pedido t) {

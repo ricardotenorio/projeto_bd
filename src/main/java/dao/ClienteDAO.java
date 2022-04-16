@@ -18,9 +18,8 @@ public class ClienteDAO {
 		return dao.adiciona(t);
 	}
 
-	public Cliente remove(Cliente t) {
+	public void remove(Cliente t) {
 		dao.remove(t);
-		return t;
 	}
 
 	public Cliente atualiza(Cliente t) {

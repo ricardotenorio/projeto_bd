@@ -4,9 +4,12 @@ import model.entity.Cliente;
 import model.entity.Dependente;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
-public class DependenteDAO {private GenericDAO<Dependente> dao;
+public class DependenteDAO {
+
+  private GenericDAO<Dependente> dao;
 
   public DependenteDAO(EntityManager manager){
     dao = new GenericDAO<Dependente>(manager, Dependente.class);
@@ -16,9 +19,8 @@ public class DependenteDAO {private GenericDAO<Dependente> dao;
     return dao.adiciona(t);
   }
 
-  public Cliente remove(Dependente t) {
+  public void remove(Dependente t) {
     dao.remove(t);
-      return null;
   }
 
   public Dependente atualiza(Dependente t) {
@@ -29,8 +31,11 @@ public class DependenteDAO {private GenericDAO<Dependente> dao;
     return dao.listaTodos();
   }
 
-  public Dependente buscaPorId(Long id) {
-    return dao.buscaPorId(id);
+  public Dependente buscaPorRg(String rg) {
+    Query query = getEntityManager().createQuery("SELECT d FROM Dependente as d WHERE d.rg = " + rg);
+    Dependente dependenteEncontrado = (Dependente)(query.getResultList().get(0));
+
+    return dependenteEncontrado;
   }
 
   public EntityManager getEntityManager() {
