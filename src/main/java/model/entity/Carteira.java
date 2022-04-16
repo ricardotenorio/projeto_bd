@@ -25,7 +25,9 @@ public class Carteira implements Serializable {
   })
   private Cliente cliente;
 
-  public Carteira() {}
+  public Carteira() {
+
+  }
 
   public Carteira(Long id, double saldo, int pontos, Cliente cliente) {
     this.id = id;

@@ -6,14 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import javax.persistence.EntityManager;
 
+import builder.ClienteFisicoBuilder;
+import model.entity.ClienteFisico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import builder.ClienteBuilder;
+
 import model.entity.Cliente;
 
-public class ClienteDAOTest {
+public class ClienteFisicoDAOTest {
 	
 	EntityManager manager;
 	ClienteDAO dao;
@@ -33,14 +35,14 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveSalvarCliente() {
-		Cliente novoCliente = ClienteBuilder.umCliente().comNome("João da Silva").build();
+		Cliente novoCliente = ClienteFisicoBuilder.umClienteFisico().comNome("João da Silva").build();
         dao.adiciona(novoCliente);
         assertNotNull(novoCliente.getId());
 	}
 	
 	@Test
 	public void deveEncontrarPeloId() {
-		Cliente novoCliente = ClienteBuilder.umCliente().comNome("João da Silva").build();
+		Cliente novoCliente = ClienteFisicoBuilder.umClienteFisico().comNome("João da Silva").build();
 	    dao.adiciona(novoCliente);
 		
 	    Cliente cleinteDoBanco = dao.buscaPorId(novoCliente.getId());
@@ -56,7 +58,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveDeletarUmCliente() {
-		Cliente novoCliente = ClienteBuilder.umCliente().comNome("João da Silva").build();
+		Cliente novoCliente = ClienteFisicoBuilder.umClienteFisico().comNome("João da Silva").build();
 	    
 		dao.adiciona(novoCliente);
 		
@@ -72,7 +74,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveAtualizarUmCliente() {
-		Cliente novoCliente = ClienteBuilder.umCliente().comNome("João da Silva").build();
+		Cliente novoCliente = ClienteFisicoBuilder.umClienteFisico().comNome("João da Silva").build();
 		dao.adiciona(novoCliente);
 		
 		Long idCliente = novoCliente.getId();

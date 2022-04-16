@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import model.entity.Cliente;
 
+
 public class ClienteDAO {
 	
 	private GenericDAO<Cliente> dao;
