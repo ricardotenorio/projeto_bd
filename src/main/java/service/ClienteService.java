@@ -27,7 +27,7 @@ public class ClienteService {
         return dao.buscaPorId(clienteID);
     }
 
-    public List<ClienteFisico> listaCliente(ClienteFisico cliente){
+    public List<ClienteFisico> listaClientes(){
         return dao.listaTodos();
     }
 }

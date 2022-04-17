@@ -27,7 +27,7 @@ public class ProdutoService {
         return dao.buscaPorId(produtoID);
     }
 
-    public List<Produto> listaProduto(Produto produto){
+    public List<Produto> listaProdutos(){
         return dao.listaTodos();
     }
 }

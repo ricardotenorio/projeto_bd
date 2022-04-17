@@ -19,7 +19,7 @@ public class PedidoService {
     dao.remove(pedido);
   }
 
-  public List<Pedido> listaPedido(Pedido pedido){
+  public List<Pedido> listaPedidos(){
     return dao.listaTodos();
   }
 

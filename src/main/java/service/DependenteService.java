@@ -26,7 +26,7 @@ public class DependenteService {
         return dao.buscaPorRg(rg);
     }
 
-    public List<Dependente> listaDependente(Dependente dependente){
+    public List<Dependente> listaDependentes(){
         return dao.listaTodos();
     }
 }
