@@ -17,26 +17,35 @@ public class PedidoDAO {
   public Pedido adiciona(Pedido t) {
     EntityManager entity = getEntityManager();
 
-    dao.beginTransaction();
+    try {
+      dao.beginTransaction();
 
-    entity.persist(t);
+      entity.persist(t);
 
-    Carteira carteira = t.getCliente().getCarteira();
-    double saldoCarteira = carteira.getSaldo();
+      Carteira carteira = t.getCliente().getCarteira();
+      double saldoCarteira = carteira.getSaldo();
 
-    carteira.setSaldo(saldoCarteira - t.getValorTotal());
+      if (carteira.getSaldo() < t.getValorTotal())
+        throw new Exception("saldo insuficiente");
 
-    int calculaPontos = (int)(t.getValorTotal() / 10);
+      carteira.setSaldo(saldoCarteira - t.getValorTotal());
 
-    carteira.setPontos(carteira.getPontos() + calculaPontos);
+      int calculaPontos = (int)(t.getValorTotal() / 10);
 
-    entity.merge(carteira);
+      carteira.setPontos(carteira.getPontos() + calculaPontos);
 
-    dao.commitTransaction();
+      entity.merge(carteira);
 
-    return dao.adiciona(t);
+      dao.commitTransaction();
+
+      return dao.adiciona(t);
+    } catch (Exception e) {
+      System.err.println(e.getCause());
+      dao.rollbackTransaction();
+    }
+
+    return t;
   }
-
 
   public void remove(Pedido t) {
     dao.remove(t);
