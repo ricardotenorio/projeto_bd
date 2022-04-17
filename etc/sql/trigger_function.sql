@@ -1,19 +1,17 @@
-CREATE FUNCTION calcular_valor_total()
+CREATE OR REPLACE FUNCTION calcular_valor_total()
 	RETURNS TRIGGER
 	LANGUAGE PLPGSQL
 AS $$
 BEGIN
-	SELECT sum(pp.valor_unidade * pp.qtd) INTO valor_total_temp
-		FROM pedido_produto AS pp
-		WHERE pp.id_pedido = NEW.id_pedido
-		GROUP BY pp.id_pedido;
-
-	NEW.valor_total := valor_total_temp;
+	UPDATE pedido
+	SET valor_total = COALESCE(valor_total, 0) + (NEW.valor_unidade * NEW.qtd)
+	WHERE id_pedido = NEW.id_pedido;
+	RETURN NULL;
 END;
-$$
+$$;
 
-CREATE TRIGGER trigger_valor_total
+CREATE TRIGGER trigger_atualizar_valor_pedido
 	AFTER INSERT
-	ON produto
+	ON pedido_produto
 	FOR EACH ROW
 	EXECUTE PROCEDURE calcular_valor_total();
