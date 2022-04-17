@@ -6,16 +6,16 @@
 
 	<persistence-unit name="hibernate_jpa" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		
+
 		<class>model.entity.Cliente</class>
 		
 		<properties>
 		
 			<!-- Configuring JDBC properties -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/jpa" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpa" />
             <property name="javax.persistence.jdbc.user" value="postgres" />
-            <property name="javax.persistence.jdbc.password" value="admin" />
+            <property name="javax.persistence.jdbc.password" value="12345" />
         
         	<!-- Hibernate properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

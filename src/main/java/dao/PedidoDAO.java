@@ -1,5 +1,6 @@
 package dao;
 
+import model.entity.Carteira;
 import model.entity.Pedido;
 
 import javax.persistence.EntityManager;
@@ -15,14 +16,24 @@ public class PedidoDAO {
 
   public Pedido adiciona(Pedido t) {
     EntityManager entity = getEntityManager();
+
     dao.beginTransaction();
+
     entity.persist(t);
-    double saldoCarteira = t.getCliente().getCarteira().getSaldo();
-    t.getCliente().getCarteira().setSaldo(saldoCarteira - t.getValorTotal());
+
+    Carteira carteira = t.getCliente().getCarteira();
+    double saldoCarteira = carteira.getSaldo();
+
+    carteira.setSaldo(saldoCarteira - t.getValorTotal());
+
     int calculaPontos = (int)(t.getValorTotal() / 10);
-    t.getCliente().getCarteira().setPontos(t.getCliente().getCarteira().getPontos() + calculaPontos);
-    entity.merge(t.getCliente().getCarteira());
+
+    carteira.setPontos(carteira.getPontos() + calculaPontos);
+
+    entity.merge(carteira);
+
     dao.commitTransaction();
+
     return dao.adiciona(t);
   }
 
