@@ -2,10 +2,11 @@ package model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class PedidoProdutoPK {
+public class PedidoProdutoPK implements Serializable {
 
   @Column(name = "id_pedido", nullable = false)
   private Long idPedido;

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo_cliente")
+@DiscriminatorColumn(name = "tipo")
 public abstract class Cliente implements Serializable {
 	
 	private static final long serialVersionUID = 3387642521978418140L;

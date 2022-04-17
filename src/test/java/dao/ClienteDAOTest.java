@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import javax.persistence.EntityManager;
 
 import builder.ClienteFisicoBuilder;
+import model.entity.ClienteFisico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveSalvarCliente() {
-		Cliente novoCliente = ClienteFisicoBuilder
+		ClienteFisico novoCliente = ClienteFisicoBuilder
 														.umCliente()
 														.comNome("João da Silva")
 														.comCpf("12345678901")
@@ -46,7 +47,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveEncontrarPeloId() {
-		Cliente novoCliente = ClienteFisicoBuilder
+		ClienteFisico novoCliente = ClienteFisicoBuilder
 														.umCliente()
 														.comNome("João da Silva")
 														.comCpf("12345678901")
@@ -61,13 +62,13 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void naoDeveEncontrarPeloId() {
-		Cliente clienteDoBanco = dao.buscaPorId(-1l);
+		ClienteFisico clienteDoBanco = dao.buscaPorId(-1l);
 		assertNull(clienteDoBanco);
 	}
 	
 	@Test
 	public void deveDeletarUmCliente() {
-		Cliente novoCliente = ClienteFisicoBuilder
+		ClienteFisico novoCliente = ClienteFisicoBuilder
 														.umCliente()
 														.comNome("João da Silva")
 														.comCpf("12345678901")
@@ -88,7 +89,7 @@ public class ClienteDAOTest {
 	
 	@Test
 	public void deveAtualizarUmCliente() {
-		Cliente novoCliente = ClienteFisicoBuilder
+		ClienteFisico novoCliente = ClienteFisicoBuilder
 														.umCliente()
 														.comNome("João da Silva")
 														.comCpf("12345678901")

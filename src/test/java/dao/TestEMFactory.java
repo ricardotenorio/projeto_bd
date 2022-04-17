@@ -11,7 +11,7 @@ public class TestEMFactory {
 	private EntityManagerFactory factory;
 	
 	private TestEMFactory(){
-		this.factory = Persistence.createEntityManagerFactory("hibernate_jpa");
+		this.factory = Persistence.createEntityManagerFactory("hibernate_jpa_test");
 	}
 	
 	public static TestEMFactory getInstance(){

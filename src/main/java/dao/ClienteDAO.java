@@ -5,32 +5,33 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import model.entity.Cliente;
+import model.entity.ClienteFisico;
 
 public class ClienteDAO {
 	
-	private GenericDAO<Cliente> dao;
+	private GenericDAO<ClienteFisico> dao;
 	
 	public ClienteDAO(EntityManager manager){
-		dao = new GenericDAO<Cliente>(manager, Cliente.class);
+		dao = new GenericDAO<ClienteFisico>(manager, ClienteFisico.class);
 	}
 
-	public Cliente adiciona(Cliente t) {
+	public ClienteFisico adiciona(ClienteFisico t) {
 		return dao.adiciona(t);
 	}
 
-	public void remove(Cliente t) {
+	public void remove(ClienteFisico t) {
 		dao.remove(t);
 	}
 
-	public Cliente atualiza(Cliente t) {
+	public ClienteFisico atualiza(ClienteFisico t) {
 		return dao.atualiza(t);
 	}
 
-	public List<Cliente> listaTodos() {
+	public List<ClienteFisico> listaTodos() {
 		return dao.listaTodos();
 	}
 
-	public Cliente buscaPorId(Long id) {
+	public ClienteFisico buscaPorId(Long id) {
 		return dao.buscaPorId(id);
 	}
 

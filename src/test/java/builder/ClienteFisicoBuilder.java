@@ -30,7 +30,7 @@ public class ClienteFisicoBuilder {
 		return this;
 	}
 	
-	public Cliente build() {
+	public ClienteFisico build() {
 		ClienteFisico cliente = new ClienteFisico();
 		cliente.setNome(nome);
 		cliente.setRg(rg);
