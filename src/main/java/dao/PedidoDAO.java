@@ -14,7 +14,7 @@ public class PedidoDAO {
     dao = new GenericDAO<Pedido>(manager, Pedido.class);
   }
 
-  public Pedido adiciona(Pedido t) {
+  public Pedido adiciona(Pedido t) throws Exception {
     EntityManager entity = getEntityManager();
 
     try {
@@ -42,9 +42,8 @@ public class PedidoDAO {
     } catch (Exception e) {
       System.err.println(e.getCause());
       dao.rollbackTransaction();
+      throw new Exception();
     }
-
-    return t;
   }
 
   public void remove(Pedido t) {
