@@ -47,7 +47,7 @@ public class Pedido implements Serializable {
   @ManyToOne(optional = false, cascade = CascadeType.ALL)
   private Cliente cliente;
 
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido", cascade = CascadeType.ALL)
   private Set<PedidoProduto> itens;
 
   public Pedido() {}

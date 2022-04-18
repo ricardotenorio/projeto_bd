@@ -20,7 +20,7 @@ public abstract class Cliente implements Serializable {
 	@Column(name = "NOME", nullable = false)
 	private String nome;
 
-	@OneToOne(mappedBy = "cliente")
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private Carteira carteira;
 
 	public Cliente() {}

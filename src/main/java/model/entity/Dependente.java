@@ -15,7 +15,7 @@ public class Dependente implements Serializable {
 
   @MapsId("idCliente")
   @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   private Cliente cliente;
 
   public Dependente() {}
